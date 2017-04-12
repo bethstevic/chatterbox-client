@@ -5,14 +5,26 @@ body {
     font-family: arial, sans-serif;
 }
 
-#main, #chats {
-    width: 500px;
+#main{
+    width: 800px;
     margin: auto;
     text-align: left;
     background: white;
     padding: 50px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
+}
+
+#chats{
+    width: 800px;
+    margin: auto;
+    text-align: left;
+    background: white;
+    padding: 50px 60px;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+    font-color: black;
+
 }
 
 #main h1 {
@@ -88,3 +100,6 @@ form input[type=text] {
     background-color: #0090da;
 }
 
+span .username  {
+    color: #FF00FF;
+}
