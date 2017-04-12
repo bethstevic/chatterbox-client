@@ -51,7 +51,7 @@ app.fetch();
 app.send = function(message) {
   $.ajax({
   // This is the url you should use to communicate with the parse API server.
-    url: 'http://parse.hrr.hackreactor.com/chatterbox/classes/messages',
+    url: app.server,
     type: 'POST',
     data: JSON.stringify(message),
     contentType: 'application/json',
@@ -85,6 +85,9 @@ app.renderMessage = function(message) {
     currentUserName = message.username;
     $chat = $('<div class="chat"><span class= "username"> ' + currentUserName + '</span><br><span>' + currentMessage + '</span></div>');
     $('#chats').prepend($chat);
+    if(app.friends.includes(this.username)){
+      $(this).class('friend');
+    }
   }
 };
 
@@ -113,6 +116,7 @@ app.handleSubmit = function(e) {
     username: window.location.search.slice(10),
     roomname: app.roomname || 'lobby'
   };
+  console.log(message);
   app.send(message);
   app.renderMessage(message);
  /*var $chat = $('<div class="chat"><span class= "username"> ' + message.username + '</span><br><span>' + message.text + '</span></div>');
